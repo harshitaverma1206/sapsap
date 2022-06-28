@@ -1,0 +1,55 @@
+<mvc:View
+    controllerName="demo1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:course="demo1.control"
+	xmlns:core="sap.ui.core"    
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                <course:ProductRate valueSubmit="onRatingChanged"/>
+                <Button text="click" type="Emphasized" icon ="sap-icon://notes" press="onPress"></Button>
+                    <content />
+
+                    <Carousel>
+                    	<List  class="mini" items="{/Employees}" headerText="EmployeeList">
+		<ObjectListItem
+			title="{FirstName}" number="{PostalCode}"
+			type="Active">
+			<ObjectAttribute text="{City} {Country}" />
+		</ObjectListItem>
+	</List>
+    <Table items="{
+			path : '/Employees'
+		}" growingDirection="Downwards" growing="true" growingThreshold="5">
+    
+    	<columns>	
+        <Column width="12em">
+        	<header>
+        <Text text="FirstName" />
+        	</header>
+        </Column>
+         <Column width="12em">
+         	<header>
+        <Text text="City" />
+        	</header>
+        </Column>
+        </columns>
+        	<ColumnListItem vAlign="Middle">	
+            	<cells>	
+                <ObjectIdentifier title="{FirstName}" text="{EmployeeID}" />
+				<Text text="{City}" />
+                </cells>
+            </ColumnListItem>
+    </Table>
+    </Carousel>
+    <Button text="Go" press="goNext">    
+    </Button>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

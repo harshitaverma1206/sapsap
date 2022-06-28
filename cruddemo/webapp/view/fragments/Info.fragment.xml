@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	
+	<Popover class="sapUiPopupWithPadding" initialFocus="action" title="UserInfo">
+        <VBox>
+    <Text text="user Name :- Harshita Verma"/> 
+    <Text text="Email-Id :- harshita.verma@yash.com"/> 
+    <Text text="phone-No.:- 7869050122"/>  
+    </VBox> 
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Ok" press="okPressLanguage" type="Transparent"/>
+			</OverflowToolbar>
+		</footer>
+	</Popover>
+</core:FragmentDefinition>

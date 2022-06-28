@@ -1,0 +1,121 @@
+<mvc:View xmlns:core="sap.ui.core"
+    controllerName="cruddemo.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+     xmlns:fb="sap.ui.comp.filterbar"
+     
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page">
+
+                <subHeader>
+						<Toolbar>
+							<Button icon ="sap-icon://employee" press="languagePopover"/>
+							<ToolbarSpacer/>
+                            <Label text="Business Partners" design="Bold"/>
+							<!-- <Text text="Business Partners"/> -->
+							<ToolbarSpacer/>
+							 <Button icon ="sap-icon://message-popup" press="onOpenDialog"/>
+						</Toolbar>
+				</subHeader>               
+ <ToolbarSeparator/>
+
+               <fb:FilterBar id="filterBar" useToolbar="false" search="onSearch" >
+                <fb:filterGroupItems>
+				<fb:FilterGroupItem groupName="group1" name="A" partOfCurrentVariant="true" visibleInFilterBar="true" label="BusinessPartnerId">
+				<fb:control>
+                <!-- <Input type="Text" width="20%"/> -->
+                <ComboBox items="{ path:'/BusinessPartnerSet'}">
+				<core:Item text="{BusinessPartnerID}" key="BusinessPartnerID"/>
+				</ComboBox>
+				</fb:control>
+				</fb:FilterGroupItem>
+
+                <fb:FilterGroupItem groupName="group1" name="A1"  partOfCurrentVariant="true" visibleInFilterBar="true" label="CompanyName">
+				<fb:control>
+               
+                <ComboBox items="{ path:'/BusinessPartnerSet'}">
+				<core:Item text="{CompanyName}" key="CompanyName"/>
+				</ComboBox>
+				</fb:control>
+				</fb:FilterGroupItem>
+                </fb:filterGroupItems>
+                </fb:FilterBar>                   
+                
+              <ToolbarSeparator/>
+                    <!-- <List id="mini" items="{LocalModel>/BusinessPartnerData}">
+                    <ObjectListItem title="{LocalModel>CompanyName}"></ObjectListItem>
+                    </List> -->
+
+    <Table id="empTableID" items="{/BusinessPartnerSet}" growingDirection="Downwards" growing="true" growingThreshold="10" updateFinished="getProCount">
+    <headerToolbar>
+                <Toolbar>
+                    
+							<Text id="to" text="Total Record ()"/>
+                            <Button  text="Toggle Count" press="toggleCount"></Button>
+							<ToolbarSpacer/>
+                            <!-- <SearchField width="20%"></SearchField> -->
+						    <Button icon="sap-icon://action-settings" press=" onPressSettingsIcon" ></Button>
+                </Toolbar>
+	</headerToolbar>
+    	<columns>	
+        <Column width="12em" id="busId">
+        	<header>
+        <Text text="BusinessPartnerID"  />
+        	</header>
+        </Column>
+        <Column width="12em" id="comName">
+         	<header>
+        <Text text="companyName"  />
+        	</header>
+        </Column>
+        <Column width="12em" id="email">
+         	<header>
+        <Text text="Email-address"  />
+        	</header>
+        </Column>
+         <Column width="12em" id="phone">
+         	<header>
+        <Text text="PhoneNumber"  />
+        	</header>
+        </Column>
+
+        <Column width="12em" id="fax">
+         	<header>
+        <Text text="FaxNumber"  />
+        	</header>
+        </Column>
+
+        <Column width="12em" id="web">
+         	<header>
+        <Text text="WebAddress"  />
+        	</header>
+        </Column>
+
+         <Column width="12em" id="form">
+         	<header>
+        <Text text="LegalForm"  />
+        	</header>
+        </Column>
+
+        </columns>
+        	<ColumnListItem vAlign="Middle" type="Navigation" press="onSelect">	
+            	<cells>	
+                <ObjectIdentifier title="{BusinessPartnerID}"/>
+                <Text text="{CompanyName}"/>
+				<Text text="{EmailAddress}" />
+                <ObjectIdentifier title="{PhoneNumber}"/>
+                <Text text="{FaxNumber}"/>
+                <Text text="{WebAddress}"/>
+                <Text text="{LegalForm}"/>
+                </cells>
+            </ColumnListItem>
+    </Table>
+            </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

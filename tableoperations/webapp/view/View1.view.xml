@@ -1,0 +1,66 @@
+<mvc:View
+    controllerName="tableoperations.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                        <Table items="{/EmployeeList}" id="exportData" >
+                            <headerToolbar>
+                                <Toolbar>
+                                    <ToolbarSpacer ></ToolbarSpacer>
+                                    <Button text="Export" icon="sap-icon://upload-to-cloud" type="Default" class="sapUiLargeMarginBeginEnd" press="onExportDialog"/>
+                                </Toolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column >
+                                    <Text text="EmployeeID"/>
+                                </Column>
+                                <Column hAlign="Center" >
+                                    <Text text="Name"/>
+                                </Column>
+                                <Column hAlign="Center">
+                                    <Text text="Title"/>
+                                </Column>
+                                <Column hAlign="Center">
+                                    <Text text="City"/>
+                                </Column>
+                                <Column hAlign="Center">
+                                    <Text text="Country"/>
+                                </Column>
+                            </columns>
+                            <items >
+                                <ColumnListItem>
+                                    <cells>
+										<Text text="{EmployeeID}"/>
+										<Text text="{FirstName} {LastName}"/>
+										<Text text="{Title}"/>
+                                        <Text text="{City}"/> 
+                                        <Text text="{Country}"/>                      
+									</cells>
+								</ColumnListItem>
+                            </items>
+                        </Table>
+                    </content>
+                    <footer>
+                        <OverflowToolbar >
+                                <ToolbarSpacer />
+                                <Button text="Export" type="Emphasized" class="sapUiLargeMarginBeginEnd" press="onExport"/>
+                                <ToolbarSpacer />
+                                <Button text="Upload" type="Default" class="sapUiLargeMarginBeginEnd" press="onUpload"/>
+                                <ToolbarSpacer />
+                                <Button text="Upload Collection" type="Default" class="sapUiLargeMarginBeginEnd" press="onUploadCollection"/>
+                                <ToolbarSpacer />
+                        </OverflowToolbar>
+                    </footer>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
+

@@ -1,0 +1,33 @@
+<mvc:View xmlns:form="sap.ui.layout.form"
+    controllerName="demo1.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:course="demo1.control"
+	xmlns:core="sap.ui.core"    
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="customPage" title="{i18n>login}">
+                <form:SimpleForm layout="ResponsiveGridLayout" adjustLabelSpan="false" emptySpanL="4" columnsL="1" labelSpanL="4" >
+                <form:content>
+                <Label text="UserName" required="true"></Label>
+                <Input id="user"></Input>
+                 <Label text="Password" required="true"></Label>
+                <Input type="Password" id="pass"></Input>
+                </form:content>
+                </form:SimpleForm>
+                <footer>
+                <Bar design="Footer">
+                <contentRight>
+                <Button text="Login" press="onLogin" type="Accept"/>
+                </contentRight>
+                
+                </Bar>
+                </footer>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

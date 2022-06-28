@@ -1,0 +1,48 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:vk="sap.ui.vk"
+    controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page">
+                <Image src="https://i.pinimg.com/564x/13/95/9a/13959adfbc9c48213e74ee6e0dc4f519.jpg" height="100px" width="100px"></Image>
+                <Label ></Label>
+                <Label ></Label>
+                <Label text="Online shopping" design="Bold"/>
+                <Image src="https://i.pinimg.com/564x/13/95/9a/13959adfbc9c48213e74ee6e0dc4f519.jpg" height="100px" width="100px"></Image>
+               <!-- <subHeader>
+               
+						<Toolbar>
+							<Label text="Online shopping" design="Bold"/>
+                        <Image src="https://i.pinimg.com/564x/13/95/9a/13959adfbc9c48213e74ee6e0dc4f519.jpg"></Image>
+						</Toolbar>
+				</subHeader>      -->
+                    <content />
+                    <Table items="{/BusinessPartnerSet}">
+                    <columns>
+                    <Column >
+                    <Text text="Name"/>
+                    </Column>
+                     <Column >
+                    <Text text="City"/>
+                    </Column>
+                     <Column >
+                    <Text text="Phone"/>
+                    </Column>
+                    </columns>
+                    <ColumnListItem>
+                    <cells>
+                    <Text text="{CompanyName}"/>
+                    <Text text="{PhoneNumber}"/>
+                    <Text  text="{BusinessPartnerRole}"/>
+                    </cells>
+                    </ColumnListItem>
+                    </Table>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+	<BusyDialog
+    text= " User Name{car>/User/0/Name}"
+		showCancelButton="true"
+		close="onDialogClosed">
+    </BusyDialog>
+    
+    
+     
+    
+</core:FragmentDefinition>

@@ -1,0 +1,90 @@
+<mvc:View xmlns:core="sap.ui.core"
+    controllerName="cruddemo.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar"
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page">
+
+                 <subHeader>
+						<Toolbar>
+                        <Button icon ="sap-icon://nav-back" press="onBack"/>
+							
+							<Label text="Sales Orders Details" design="Bold"/>
+						</Toolbar>
+				</subHeader> 
+               
+               <!-- <Text id="lineitems" text="Sales Order Id:- {/ToSalesOrders/0/SalesOrderID}"/>
+						<Toolbar>
+						
+                <Text text="Customer Id:- {LocalModel>/SalesOrders/0/CustomerID}"/>
+                <ToolbarSpacer/>
+                <Text text="NetAmount:- {LocalModel>/SalesOrders/0/NetAmount}"/>	
+						</Toolbar> -->
+				
+
+                
+               
+				
+
+               
+                
+<ToolbarSeparator ></ToolbarSeparator>
+
+                 <Table items="{LocalModel>/LineItems}" growingDirection="Downwards" growing="true" growingThreshold="10" updateFinished="getProCount"  >
+     <headerToolbar>
+                <Toolbar>
+                    
+							<Text id="to" text="Total Line Items ()"/>
+                            <Button text="Toggle Count" press="toggleCount"></Button>
+							<ToolbarSpacer/>
+                           <!-- <SearchField width="30%"></SearchField> -->
+                </Toolbar>
+	</headerToolbar>
+    	<columns>	
+        <Column width="12em">
+        	<header>
+        <Text text="ProductID" />
+        	</header>
+        </Column>
+        <Column width="12em">
+         	<header>
+        <Text text="Quantity" />
+        	</header>
+        </Column>
+        <Column width="12em">
+         	<header>
+        <Text text="Quantity Unit" />
+        	</header>
+        </Column>
+         <Column width="12em">
+         	<header>
+        <Text text="Delivery Date" />
+        	</header>
+        </Column>
+        <Column width="12em">
+         	<header>
+        <Text text="Net Amount" />
+        	</header>
+        </Column>
+        </columns>
+        	<ColumnListItem vAlign="Middle" press="onLine">	
+            	<cells>	
+                <ObjectIdentifier title="{LocalModel>ProductID}"/>
+                <Text text="{LocalModel>Quantity}"/>
+                 <Text text="{LocalModel>QuantityUnit}"/>
+				 <Text text="{path:'LocalModel>DeliveryDate',type: 'sap.ui.model.type.DateTime'}" />
+                <Text text="{LocalModel>NetAmount}"/>
+                </cells>
+            </ColumnListItem>
+    </Table>
+
+                   </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

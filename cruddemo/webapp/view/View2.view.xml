@@ -1,0 +1,120 @@
+<mvc:View xmlns:core="sap.ui.core"
+    controllerName="cruddemo.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar"
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page">
+
+                 <subHeader>
+						<Toolbar>
+							<Button icon ="sap-icon://nav-back" press="onBack"/>
+							<!-- <ToolbarSpacer/> -->
+							<Label text="Sales Orders" design="Bold"/>
+                            <Text/>
+						</Toolbar>
+				</subHeader> 
+
+                 <ToolbarSeparator/>
+
+  <fb:FilterBar id="filterBar" useToolbar="false" search="onSearch" >
+                <fb:filterGroupItems>
+				<fb:FilterGroupItem groupName="group1" name="A" partOfCurrentVariant="true" visibleInFilterBar="true" label="SalesOrderId">
+				<fb:control>
+                
+                <ComboBox items="{path:'LocalModel>/SalesOrders'}">
+				<core:Item text="{LocalModel>SalesOrderID}" key="SalesOrderID"/>
+				</ComboBox>
+				</fb:control>
+				</fb:FilterGroupItem>
+
+                <fb:FilterGroupItem groupName="group2" name="A1"  partOfCurrentVariant="true" visibleInFilterBar="true" label="CoustomerId">
+				<fb:control>
+               
+                <ComboBox items="{path:'LocalModel>/SalesOrders'}">
+				<core:Item text="{LocalModel>CustomerID}" key="CustomerID"/>
+				</ComboBox>
+				</fb:control>
+				</fb:FilterGroupItem>
+
+                <!-- <fb:FilterGroupItem groupName="group2" name="A2"  partOfCurrentVariant="true" visibleInFilterBar="true" label="BillingStatus">
+				<fb:control>
+               
+                <ComboBox items="{path:'LocalModel>/SalesOrders'}">
+				<core:Item text="{LocalModel>BillingStatus}" key="BillingStatus"/>
+				</ComboBox>
+				</fb:control>
+				</fb:FilterGroupItem> -->
+                </fb:filterGroupItems>
+                </fb:FilterBar>                   
+                
+                
+
+    <Table id="empTableID" items="{LocalModel>/SalesOrders}" growingDirection="Downwards" growing="true" growingThreshold="50" delete="handleDelete"  selectionChange="onMode" updateFinished="getProCount">
+     <headerToolbar>
+                <Toolbar>
+                    
+							<Text id="to" text="Total Record ({LocalModel>/SalesOrders/length})"/>
+                            <Button text="Toggle Count" press="toggleCount"></Button>
+							<ToolbarSpacer/>
+                            <Button id="create" text="Create" press="onCreatePress" ></Button>
+                            <Button id="update" text="Update" press="onUpdatePress"></Button>
+						    <Button id="delete" text="Delete" press="onDeletePress" ></Button>
+                </Toolbar>
+	</headerToolbar>
+    	<columns>	
+        <Column width="12em">
+        	<header>
+        <Text text="SalesorderID" />
+        	</header>
+        </Column>
+        <Column width="12em">
+         	<header>
+        <Text text="CustomerId" />
+        	</header>
+        </Column>
+        <Column width="12em">
+         	<header>
+        <Text text="BillingStatusDescriptions" />
+        	</header>
+        </Column>
+
+         <Column width="12em">
+         	<header>
+        <Text text="CreatedAt" />
+        	</header>
+        </Column>
+
+        <Column width="12em">
+         	<header>
+        <Text text="CustomerName" />
+        	</header>
+        </Column>
+        <Column width="12em">
+         	<header>
+        <Text text="DeliveryStatusDescription" />
+        	</header>
+        </Column>
+        </columns>
+        	<ColumnListItem vAlign="Middle" type="Navigation" press="onSelect">	
+            	<cells>	
+                <ObjectIdentifier title="{LocalModel>SalesOrderID}"/>
+                <ObjectIdentifier title="{LocalModel>CustomerID}"/>
+                 <!-- <Text text="{LocalModel>CustomerID}"/> -->
+                  <Text text="{LocalModel>BillingStatusDescription}"/>
+                 
+                <Text text="{path:'LocalModel>CreatedAt',type: 'sap.ui.model.type.DateTime'}"/>
+                 <Text text="{LocalModel>CustomerName}"/>
+                 <Text text="{LocalModel>DeliveryStatusDescription}"/>
+                </cells>
+            </ColumnListItem>
+    </Table>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

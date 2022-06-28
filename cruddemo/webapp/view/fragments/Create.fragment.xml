@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+<Popover placement="VerticalPreferredTop" initialFocus="action" id="myPopover">
+<content>
+<f:SimpleForm id="newUser" layout="ResponsiveGridLayout"
+title="Add New Comapny">
+<f:content>
+<Label text="SalesOrederId" required="true" />
+<Input id="companyId" value=""/>
+<Label text="CustomerId" required="true" />
+<Input id="customId" value=""/>
+
+</f:content>
+</f:SimpleForm>
+</content>
+<footer>
+<OverflowToolbar>
+<ToolbarSpacer/>
+<Button text="ADD" press="addCompanyPressed" type="Transparent"/>
+</OverflowToolbar>
+</footer>
+</Popover>
+</core:FragmentDefinition>

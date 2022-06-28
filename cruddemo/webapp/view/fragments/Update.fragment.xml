@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+<Popover placement="VerticalPreferredTop" initialFocus="action" id="secondPopover">
+<content>
+<f:SimpleForm id="updateUser" layout="ResponsiveGridLayout"
+title="Update Comapny Name">
+<f:content>
+<Label text="Sales Order ID" required="true" />
+<Input id="updateId" value=""/>
+
+<Label text="CustomerID" required="true" />
+<Input id="custId" value=""/>
+
+<Label text="CustomerName" required="true" />
+<Input id="custName" value=""/>
+
+<Label text="BillingStatusDiscription" required="true" />
+<Input id="bill" value=""/>
+
+
+
+
+</f:content>
+</f:SimpleForm>
+</content>
+<footer>
+<OverflowToolbar>
+<ToolbarSpacer/>
+<Button text="UPDATE" press="updateCompanyPressed" type="Transparent"/>
+</OverflowToolbar>
+</footer>
+</Popover>
+</core:FragmentDefinition>
